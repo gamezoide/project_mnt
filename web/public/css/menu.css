@@ -1,0 +1,59 @@
+.menu > li > a{
+    display: block;
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu > li > a:hover, .menu > li > a:focus{
+    box-shadow: inset 0px 5px #FFF;
+    color: #FFF;
+}
+
+.menu .selected{
+    background: #04A012;
+}
+
+.menu > li > a.logout{
+    display: inline-block;
+    padding: 0px 20px;
+    padding-left: 0px;
+}
+
+.menu > li > a.logout > img{
+    margin-right: 20px;
+}
+
+.menu > li a:hover{
+    background:#04A012;
+}
+
+.menu-icon{
+    margin-bottom: 10px;
+}
+.menu{
+    margin-bottom: 0px;
+}
+
+.menu li{
+    cursor: pointer;
+}
+
+.menu .dropdown-menu > li > a{
+    color: #fff;
+}
+
+.menu .dropdown-menu > li > a:hover, .menu .dropdown-menu > li > a:focus{
+    background: #5D5B5B;
+}

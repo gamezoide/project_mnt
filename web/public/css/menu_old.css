@@ -1,0 +1,207 @@
+/*
+ * Navigataur: A pure CSS responsive navigation menu
+ * Author: Mike King (@micjamking)
+ */
+
+/*
+        Notes:
+ 
+        - Media queries should be edited in both style sections if you require 
+          a different breakpoint for your navigation.
+          
+        - Toggle class & menu anchor tags in list items have box-sizing: border-box 
+          style property to allow padding inside the container without conflicting with layout.	
+
+*/
+
+
+/*--------------------------------
+ Functional Styles (Required)
+---------------------------------*/
+/* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+
+.menu-container ul{
+    padding-left: 0%;
+    margin: 0px;
+    display: table;
+    position: relative;
+    line-height: 1;
+    width: 100%;
+    margin-bottom: -5px;
+
+}
+
+.menu-container li {
+    margin: 0px;
+}
+
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+.header { position: relative; }
+#toggle, .toggle { 
+    display: none; 
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.menu > li { list-style: none; /*float:left;*/	}
+
+/* Nicolas Gallagher micro clearfix */
+.clearfix:before, .clearfix:after { display: table; content: ""; }
+.clearfix:after { clear: both; }
+
+.nav, .menu, .menu > li, .menu > li > a{ 
+    height: 100%; 
+
+}
+
+.menu li{
+    display: table-cell;
+    width: auto;
+    text-align: center;
+
+}
+
+.menu > li > a{
+    display: block;
+    padding: 5px 15px;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 768px){
+    /*    .menu > li > a{
+            padding: 17px 10px;
+            font-size: 14px;
+        }*/
+}
+
+.menu > li > a:hover, .menu > li > a:focus{
+    background: #9E9D9D /*#EB7A52 #0094d7*/;
+    box-shadow: inset 0px 5px #FFF;
+    color: #FFF;
+}
+
+.menu > li > label,
+.attendee-min-data label{
+    display: inline-block;
+    padding: 22px 20px;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+
+.selected{
+    /*    border: #5D5B5B 1px solid;*/
+    background: #5D5B5B;
+}
+
+.toggle{ 
+    z-index: 2;
+    margin: 0px;
+    background: #51C1F1;
+
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.menu > li.user-menu{
+    float: right;
+}
+
+.menu .avatar,
+.attendee-min-data .avatar{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.menu > li > a.logout{
+    display: inline-block;
+    padding: 0px 20px;
+    padding-left: 0px;
+}
+
+.menu > li > a.logout > img{
+    margin-right: 20px;
+}
+
+.attendee-min-data{
+    display: none;
+    float: right;
+}
+
+.icon-list{
+    color: #FFF;
+    font-size: 25px;
+    vertical-align: top;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 479px){
+    .header > h1 { 
+        text-align: center;
+    }
+    .header > h1, .nav, .toggle:after{ 
+        float: none; 
+    }
+    /*.toggle:after,*/
+    .toggle{
+        width: 100%; 
+    }
+
+    .attendee-data,
+    .attendee-min-data{
+        display: none !important;
+    }
+
+    .menu > li > a {
+        padding: 12px 5px;
+        font-size: 12px;
+    }
+
+    .navbar{
+        margin-bottom: 0px;
+    }
+
+}
+
+.menu-icon{
+    margin-bottom: 10px;
+}
+/*
+.menu-container ul.dropdown-menu {
+    display: inline-grid; 
+    position: static; 
+    line-height: 0; 
+    width: auto; 
+    margin-bottom: 0px; 
+    padding-left: 0;
+}*/

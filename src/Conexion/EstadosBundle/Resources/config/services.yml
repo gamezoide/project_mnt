@@ -1,0 +1,4 @@
+services:
+#    conexion_estados.example:
+#        class: Conexion\EstadosBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

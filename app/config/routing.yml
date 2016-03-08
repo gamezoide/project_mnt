@@ -1,0 +1,7 @@
+conexion_estados:
+    resource: "@ConexionEstadosBundle/Resources/config/routing.yml"
+    prefix:   /
+
+acme_demo:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }
