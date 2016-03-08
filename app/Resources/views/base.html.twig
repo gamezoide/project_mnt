@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}DEMO{% endblock %}</title>
+        <title>{% block title %}ABC Management{% endblock %}</title>
         {% block stylesheets %}
             <!--[if gte IE 9]>
                 <style type="text/css"> .gradient { filter: none; } </style>
             <![endif]-->
             <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap.css') }}" />
             <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-theme.css') }}" />
-            <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/sticky-footer-navbar.css') }}" />
             <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-glyphicons.css') }}" />
             <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-select.css') }}" />
+            <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
             {#<link type="text/css" rel="stylesheet" href="{{ asset('public/css/notification/ns-default.css') }}" />
             <link type="text/css" rel="stylesheet" href="{{ asset('public/css/notification/ns-style-attached.css') }}" />
             <link type="text/css" rel="stylesheet" href="{{ asset('public/css/notification/ns-style-growl.css') }}" />
@@ -22,13 +22,11 @@
             <link type="text/css" rel="stylesheet" href="{{ asset('public/css/table-tools-custom.css') }}" />
             <link type="text/css" rel="stylesheet" href="{{ asset('public/css/hover.css') }}" />#}
             {# https://ianlunn.github.io/Hover/# #}
-
-            {#Google Fonts#}
-            <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+            
             <style type="text/css">
                 html,body {
                     font-family: Arial,Helvetica,sans-serif;
-                    background-image:url({{asset('public/images/polygon.jpg')}});
+                    background: #22528B;
                 }
 
             </style>
@@ -44,13 +42,6 @@
         </div>
     </div>
 </div>
-{% block footer %}
-    <div id="footer">
-        <div class="footer">
-            {#<img src="{{ asset('public/images/footer.png') }}" alt="&copy;">#}
-        </div>
-    </div>
-{% endblock %}
 
 {#% block loader %}{% include '::loader.html.twig' %}{% endblock %#}
 

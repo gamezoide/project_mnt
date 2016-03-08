@@ -1,7 +1,19 @@
+admin_project:
+    resource: "@AdminProjectBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_project_user:
+    resource: "@AdminProjectUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_user:
+    resource: "@AdminUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_welcome:
+    resource: "@AdminWelcomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 conexion_estados:
     resource: "@ConexionEstadosBundle/Resources/config/routing.yml"
     prefix:   /
-
-acme_demo:
-    path:     /
-    defaults: { _controller: AcmeDemoBundle:Welcome:index }

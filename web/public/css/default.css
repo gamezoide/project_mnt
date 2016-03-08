@@ -29,18 +29,6 @@
     text-align: right;
 }
 
-.footer-infoexpo{
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-    position: relative;
-    margin: 0 auto;
-    border-top: 1px solid #CCC;
-    font-size: 12px;
-    padding-top: 19px;
-    padding-left: 10px;
-}
-
 .copyright{
     color: #808080;
     margin-left: 5%;

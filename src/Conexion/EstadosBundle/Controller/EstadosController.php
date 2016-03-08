@@ -18,7 +18,7 @@ class EstadosController extends Controller
         $content['mx']['estados']=  $this->EstadosModel->getEstados($args);
         $args['id_pais']=2;
         $content['us']['estados']=  $this->EstadosModel->getEstados($args);
-        
+        print_r($content);die();
         return $this->render('ConexionEstadosBundle:Estados:index.html.twig', array('content' => $content));
     }
 }

@@ -15,7 +15,7 @@ div.DTTT_container {
     .button-tools, #modal, #error-modal, #menul-toggle{
         display: none;
     }
-    .panel-primary, .panel-body, .panel-heading, .container, .content-ixpo{
+    .panel-primary, .panel-body, .panel-heading, .container, .content-main{
         border: transparent !important;
     }
     .container div{

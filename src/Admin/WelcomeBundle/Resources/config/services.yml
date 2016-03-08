@@ -1,0 +1,4 @@
+services:
+#    admin_welcome.example:
+#        class: Admin\WelcomeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
