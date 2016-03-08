@@ -1,0 +1,7 @@
+admin_welcome_homepage_init:
+    path:     /
+    defaults: { _controller: AdminWelcomeBundle:Welcome:index }
+
+admin_welcome_homepage:
+    path:     /welcome
+    defaults: { _controller: AdminWelcomeBundle:Welcome:index }
