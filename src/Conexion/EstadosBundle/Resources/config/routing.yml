@@ -1,3 +1,0 @@
-conexion_estados_homepage:
-    path:     /estados
-    defaults: { _controller: ConexionEstadosBundle:Estados:index }

@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="content-main">
+        <div class="content">
+            <div class="panel-body">
+                {% include '::menu.html.twig' with {'current':0}%}        
+            </div>
+            <div>
+                <div class="details col-xs-12">
+                    <h3>User Data</h3>
+                    <hr>
+                </div>
+                <form class="col-xs-12" id="data" action="{{ path('admin_user_save') }}" method="POST">
+                    <div><input type="hidden" id="id" name="id" value="{% if user is not empty %}{{ user['id'] }}{% endif %}"></div>
+                    <div><label>Username</label><input class="form-control" id="username" name="username" required value="{% if user is not empty %}{{ user['username'] }}{% endif %}"></div>
+                    <div><label>Name</label><input class="form-control" id="name" name="name" required value="{% if user is not empty %}{{ user['name'] }}{% endif %}"></div>
+                    <div><label>Lastname</label><input class="form-control" id="lastname" name="lastname" required value="{% if user is not empty %}{{ user['lastname'] }}{% endif %}"></div>
+                    <div><label>Email</label><input class="form-control" id="email" name="email" required value="{% if user is not empty %}{{ user['email'] }}{% endif %}" type="email"></div>
+                    <div class="buttons"><button class="btn btn-success" type="submit">Save</button><a href="{{ path( 'admin_user_homepage') }}"><button class="btn btn-default" type="button">Cancel</button></a></div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
