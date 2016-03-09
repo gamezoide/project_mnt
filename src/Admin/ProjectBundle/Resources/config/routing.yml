@@ -1,3 +1,15 @@
 admin_project_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminProjectBundle:Default:index }
+    path:     /projects
+    defaults: { _controller: AdminProjectBundle:Project:index }
+    
+admin_project_data:
+    path:     /projects/data/{id}
+    defaults: { _controller: AdminProjectBundle:Project:data, id:0 }
+
+admin_project_save:
+    path:     /projects/save
+    defaults: { _controller: AdminProjectBundle:Project:save }
+
+admin_project_delete:
+    path:     /projects/delete
+    defaults: { _controller: AdminProjectBundle:Project:delete }

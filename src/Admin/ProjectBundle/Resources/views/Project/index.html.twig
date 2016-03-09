@@ -1,0 +1,69 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('public/css/tablefilter/tablefilter.css') }}" />
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="content-main">
+        <div class="content">
+            <div class="panel-body">
+                {% include '::menu.html.twig' with {'current':2}%}        
+            </div>
+            <div>
+                <table class="filterable col-xs-12 table-striped" id="projects">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Client</th>
+                            <th>Description</th>
+                            <th>Deadline</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% if projects is not empty %}
+                            {% for project in projects %}
+
+                                <tr data-id="{{ project['id'] }}" data-name="{{ project['title'] }}" class="row_{{ project['id'] }}">        
+                                    <td>{{ project['title'] }}</td>
+                                    <td>{{ project['client'] }}</td>
+                                    <td>{{ project['description'] }}</td>
+                                    <td>{{ project['deadline'] }}</td>
+                                    <td class="action">	
+                                        <a href="{{ path( 'admin_project_data', { 'id': project['id'] }) }}"><span class="glyphicon glyphicon-pencil"></span></a> <span class="glyphicon glyphicon-remove delete"></span></td>                                </tr>
+                            {% endfor %}
+                        {% else %}               
+                            <tr><td colspan="5">There are no records to show</td></tr>       
+                        {% endif %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    {% include '::confirmation.html.twig'%}
+{% endblock %}
+
+{% block loader %}{% endblock %}
+{# ------------   JAVASCRIPTS   -------------- #}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('public/js/tablefilter/tablefilter.js') }}"></script> 
+    <script>
+        var tf = new TableFilter("projects");
+        tf.init();
+        var url = "{{ path( 'admin_project_data') }}";
+        $("#flt4_projects").replaceWith("<a href='" + url + "'><button class='btn btn-primary'>New</button></a>");
+        var url_delete = "{{ path('admin_project_delete') }}";
+        
+    </script>
+    {% javascripts 
+        '@AdminProjectBundle/Resources/public/js/project.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

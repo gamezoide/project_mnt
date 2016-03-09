@@ -13,7 +13,3 @@ admin_user:
 admin_welcome:
     resource: "@AdminWelcomeBundle/Resources/config/routing.yml"
     prefix:   /
-
-conexion_estados:
-    resource: "@ConexionEstadosBundle/Resources/config/routing.yml"
-    prefix:   /

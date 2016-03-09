@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('public/css/tablefilter/tablefilter.css') }}" />
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="content-main">
+        <div class="content">
+            <div class="panel-body">
+                {% include '::menu.html.twig' with {'current':1}%}        
+            </div>
+            <div>
+                <table class="filterable col-xs-12 table-striped" id="users">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% if users is not empty %}
+                            {% for user in users %}
+
+                                <tr data-id="{{ user['id'] }}" data-name="{{ user['username']~' '~user['lastname'] }}" class="row_{{ user['id'] }}">        
+                                    <td>{{ user['username'] }}</td>
+                                    <td>{{ user['name']~' '~user['lastname'] }}</td>
+                                    <td>{{ user['email'] }}</td>
+                                    <td class="action">	
+                                        <a href="{{ path( 'admin_user_data', { 'id': user['id'] }) }}"><span class="glyphicon glyphicon-pencil"></span></a> <span class="glyphicon glyphicon-remove delete"></span></td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}               
+                            <tr><td colspan="4">There are no records to show</td></tr>       
+                        {% endif %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    {% include '::confirmation.html.twig'%}
+{% endblock %}
+
+{% block loader %}{% endblock %}
+{# ------------   JAVASCRIPTS   -------------- #}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('public/js/tablefilter/tablefilter.js') }}"></script> 
+    <script>
+        var tf = new TableFilter("users");
+        tf.init();
+        var url = "{{ path( 'admin_user_data') }}";
+        $("#flt3_users").replaceWith("<a href='" + url + "'><button class='btn btn-primary'>New</button></a>");
+        var url_delete = "{{ path('admin_user_delete') }}";
+        
+    </script>
+    {% javascripts 
+        '@AdminUserBundle/Resources/public/js/user.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
