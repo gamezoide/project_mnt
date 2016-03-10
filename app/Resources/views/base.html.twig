@@ -10,8 +10,7 @@
             <![endif]-->
             <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap.css') }}" />
             <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-theme.css') }}" />
-            <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-glyphicons.css') }}" />
-            <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-select.css') }}" />
+            <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-glyphicons.css') }}" />            
             <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
             <style type="text/css">
@@ -31,8 +30,7 @@
             <div class="container">
             {% block body %}{% endblock %}
         </div>
-        </div>
-    <div class="error_display"></div>
+    </div>    
 </div>
 
 {% block javascripts %}
@@ -43,7 +41,18 @@
     <![endif]-->
     <script src="{{ asset('public/js/jquery-1.10.2.js') }}"></script>
     <script src="{{ asset('public/js/bootstrap/bootstrap.js') }}"></script>
-    
+    <script>
+        function display_error(mssg, value) {
+            
+            var background=(value)?"#00D204":"#ff4040";
+            $(".error_display").html('<p style="text-align:center;">' + mssg + '</p>');
+            $(".error_display").css("background", background);
+            $(".error_display").show();
+            setTimeout(function () {
+                $(".error_display").hide();
+            }, 9000);
+        }
+    </script>
 {% endblock %}
 
 </body>

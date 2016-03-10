@@ -7,14 +7,13 @@
 
 {% block body %}
     <div class="content-main">
-        <div class="content">
-            <div class="panel-body">
-                {% include '::menu.html.twig' with {'current':1}%}        
-            </div>
+        <div class="content">            
+            {% include '::menu.html.twig' with {'current':1}%}
             <div>
                 <table class="filterable col-xs-12 table-striped" id="users">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Username</th>
                             <th>Full Name</th>
                             <th>Email</th>
@@ -27,6 +26,7 @@
                             {% for user in users %}
 
                                 <tr data-id="{{ user['id'] }}" data-name="{{ user['username']~' '~user['lastname'] }}" class="row_{{ user['id'] }}">        
+                                    <td>{{ loop.index }}</td>
                                     <td>{{ user['username'] }}</td>
                                     <td>{{ user['name']~' '~user['lastname'] }}</td>
                                     <td>{{ user['email'] }}</td>
@@ -35,7 +35,7 @@
                                 </tr>
                             {% endfor %}
                         {% else %}               
-                            <tr><td colspan="4">There are no records to show</td></tr>       
+                            <tr><td colspan="5">There are no records to show</td></tr>       
                         {% endif %}
                     </tbody>
                 </table>
@@ -56,9 +56,10 @@
         var tf = new TableFilter("users");
         tf.init();
         var url = "{{ path( 'admin_user_data') }}";
-        $("#flt3_users").replaceWith("<a href='" + url + "'><button class='btn btn-primary'>New</button></a>");
+        $("#flt0_users").replaceWith("");
+        $("#flt4_users").replaceWith("<a href='" + url + "'><button class='btn btn-primary'>New</button></a>");
         var url_delete = "{{ path('admin_user_delete') }}";
-        
+
     </script>
     {% javascripts 
         '@AdminUserBundle/Resources/public/js/user.js'
