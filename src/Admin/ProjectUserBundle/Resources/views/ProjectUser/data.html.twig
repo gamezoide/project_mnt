@@ -1,0 +1,79 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+       
+       '@AdminProjectUserBundle/Resources/public/css/project_user.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+
+    {% endstylesheets %}
+    <link rel="stylesheet" media="screen" href="{{ asset('public/css/bootstrap/bootstrap-select.css') }}" />
+{% endblock stylesheets %}
+
+{% block body %}
+    <div class="content-main">
+        <div class="content">
+            {% include '::menu.html.twig' with {'current':0}%}        
+            <div>
+                <div class="details col-xs-12">
+                    <h3>User Project Assignment</h3>
+                    <hr>
+                </div>
+                <div>
+                    <div><input type="hidden" id="id" name="id" value="{{ project['id'] }}"></div>
+                    <table>
+                        <tr><td>Project: </td><td>{{ project['title'] }}</td></tr>
+                        <tr><td>Description: </td><td>{{ project['description'] }}</td></tr>
+                        <tr>
+                            <td>Add user to project:</td>
+                            <td>
+                                <select class="selectpicker" data-live-search="true" id="user">
+                                    <option value="0">-</option>
+                                    {% for user in users %}
+                                        <option value="{{ user['id'] }}">{{ user['username'] }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" class="separator"></td></tr>
+                        <tr><td>Assigned users:</td>
+                            <td>
+                                <div class="assigned">
+                                    {% for user in project_user %}                                        
+                                        <span data-id="{{ user['user'] }}" data-name="{{ user['username'] }}" id="user_{{ user['user'] }}">{{ user['username'] }}<i class='glyphicon glyphicon-remove delete'></i></span>
+                                        {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" class="separator"></td></tr>
+                    </table>
+
+                    <div class="buttons"><a href="{{ path( 'admin_project_user_homepage') }}"><button class="btn btn-default" type="button">Back</button></a></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    {% include '::confirmation.html.twig'%}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('public/js/bootstrap/bootstrap-select.js') }}"></script>     
+    <script>
+        $(document).ready(function () {
+            $('.selectpicker').selectpicker();
+        });
+        var url_add = "{{ path('admin_project_user_add') }}";
+        var url_delete = "{{ path('admin_project_user_delete') }}";
+    </script>
+    {% javascripts 
+        '@AdminProjectUserBundle/Resources/public/js/project_user.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

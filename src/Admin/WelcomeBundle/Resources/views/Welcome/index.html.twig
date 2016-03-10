@@ -21,17 +21,15 @@
             <div>
                 <div class="col-xs-12"><h4>What do you want to do?</h4></div>
                 <div class="col-xs-3"></div>
-                <div class="col-xs-2"><div class="option" title="View Users"><span class="glyphicon glyphicon-user"></span></div></div>
-                <div class="col-xs-2"><div class="option" title="View projects"><span class="glyphicon glyphicon-briefcase"></span></div></div>
-                <div class="col-xs-2"><div class="option" title="View assignments"><span class="glyphicon glyphicon-retweet"></span></div></div>
+                <div class="col-xs-2"><div class="option" title="View Users"><a href="{{ path('admin_user_homepage') }}"><span class="glyphicon glyphicon-user"></span></a></div></div>
+                <div class="col-xs-2"><div class="option" title="View projects"><a href="{{ path('admin_project_homepage') }}"><span class="glyphicon glyphicon-briefcase"></span></a></div></div>
+                <div class="col-xs-2"><div class="option" title="View assignments"><a href="{{ path('admin_project_user_homepage') }}"><span class="glyphicon glyphicon-retweet"></span></a></div></div>
                 <div class="col-xs-3"></div>
             </div>
         </div>
-
     </div>
 {% endblock %}
 
-{% block loader %}{% endblock %}
 {# ------------   JAVASCRIPTS   -------------- #}
 {% block javascripts %}
     {{ parent() }}

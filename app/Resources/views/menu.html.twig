@@ -1,29 +1,31 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><img src="{{ asset('public/images/cabinet.png') }}" style="width:30px;"> ABC Management</a>
-        </div>
+<div class="panel-body">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="{{ asset('public/images/cabinet.png') }}" style="width:30px;"> ABC Management</a>
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="{% if current==1 %}active{% endif %}"><a href="#"><span class="glyphicon glyphicon-user"></span> Users</a></li>
-                <li class="{% if current==2 %}active{% endif %}"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Projects</a></li>
-                <li class="{% if current==3 %}active{% endif %}"><a href="#"><span class="glyphicon glyphicon-retweet"></span> Assignments</a></li>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="{% if current==1 %}active{% endif %}"><a href="{% if current==1 %}#{% else %}{{ path('admin_user_homepage') }}{% endif %}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+                    <li class="{% if current==2 %}active{% endif %}"><a href="{% if current==2 %}#{% else %}{{ path('admin_project_homepage') }}{% endif %}"><span class="glyphicon glyphicon-briefcase"></span> Projects</a></li>
+                    <li class="{% if current==3 %}active{% endif %}"><a href="{% if current==3 %}#{% else %}{{ path('admin_project_user_homepage') }}{% endif %}"><span class="glyphicon glyphicon-retweet"></span> Assignments</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
+<div class="error_display"></div>
 <style>
-.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li.active a, .navbar-default .navbar-nav > li.active a:hover{
+    .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li.active a, .navbar-default .navbar-nav > li.active a:hover{
         color: rgb(234, 46, 109);
     }
 

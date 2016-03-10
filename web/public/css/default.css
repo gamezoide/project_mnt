@@ -206,7 +206,6 @@ label {
 .header-title{
     color: #4385C2;
     font-size: 50px;
-    font-family: 'Adamina', serif;
     display: inline-block;
     float: right;
     margin: 20px;
@@ -330,7 +329,7 @@ form .buttons{
     height: 40px;
     line-height:40px;
     background:transparent;
-    position: absolute;
+    /*position: absolute;*/
     top: 0px;
     width: 100%;
     display:none;

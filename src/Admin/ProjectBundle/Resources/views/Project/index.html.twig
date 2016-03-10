@@ -15,6 +15,7 @@
                 <table class="filterable col-xs-12 table-striped" id="projects">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Title</th>
                             <th>Client</th>
                             <th>Description</th>
@@ -28,6 +29,7 @@
                             {% for project in projects %}
 
                                 <tr data-id="{{ project['id'] }}" data-name="{{ project['title'] }}" class="row_{{ project['id'] }}">        
+                                    <td>{{ loop.index }}</td>
                                     <td>{{ project['title'] }}</td>
                                     <td>{{ project['client'] }}</td>
                                     <td>{{ project['description'] }}</td>
@@ -36,7 +38,7 @@
                                         <a href="{{ path( 'admin_project_data', { 'id': project['id'] }) }}"><span class="glyphicon glyphicon-pencil"></span></a> <span class="glyphicon glyphicon-remove delete"></span></td>                                </tr>
                             {% endfor %}
                         {% else %}               
-                            <tr><td colspan="5">There are no records to show</td></tr>       
+                            <tr><td colspan="6">There are no records to show</td></tr>       
                         {% endif %}
                     </tbody>
                 </table>
@@ -57,7 +59,8 @@
         var tf = new TableFilter("projects");
         tf.init();
         var url = "{{ path( 'admin_project_data') }}";
-        $("#flt4_projects").replaceWith("<a href='" + url + "'><button class='btn btn-primary'>New</button></a>");
+        $("#flt0_projects").replaceWith("");
+        $("#flt5_projects").replaceWith("<a href='" + url + "'><button class='btn btn-primary'>New</button></a>");
         var url_delete = "{{ path('admin_project_delete') }}";
         
     </script>

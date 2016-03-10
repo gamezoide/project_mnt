@@ -1,3 +1,15 @@
 admin_project_user_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminProjectUserBundle:Default:index }
+    path:     /project_user
+    defaults: { _controller: AdminProjectUserBundle:ProjectUser:index }
+
+admin_project_user_data:
+    path:     /project_user/data/{id}
+    defaults: { _controller: AdminProjectUserBundle:ProjectUser:data }
+
+admin_project_user_add:
+    path:     /project_user/add
+    defaults: { _controller: AdminProjectUserBundle:ProjectUser:add }
+
+admin_project_user_delete:
+    path:     /project_user/delete
+    defaults: { _controller: AdminProjectUserBundle:ProjectUser:delete }

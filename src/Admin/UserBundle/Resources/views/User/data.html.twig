@@ -2,10 +2,8 @@
 
 {% block body %}
     <div class="content-main">
-        <div class="content">
-            <div class="panel-body">
-                {% include '::menu.html.twig' with {'current':0}%}        
-            </div>
+        <div class="content">            
+            {% include '::menu.html.twig' with {'current':0}%}        
             <div>
                 <div class="details col-xs-12">
                     <h3>User Data</h3>

@@ -27,6 +27,9 @@ class ProjectController extends Controller {
         $project = array();
         if ($id > 0) {//exist
             $project = $this->model->getProject($id);
+            if ($project['deadline'] == '0000-00-00') {
+                $project['deadline'] = '';
+            }
         }
 
         return $this->render('AdminProjectBundle:Project:data.html.twig', array('project' => $project));
@@ -57,7 +60,7 @@ class ProjectController extends Controller {
 
     function dateFormat($date) {
 
-        if ($date == '' || $date=='0000-00-00') {
+        if ($date == '' || $date == '0000-00-00') {
             return '-';
         }
 
