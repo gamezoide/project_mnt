@@ -17,7 +17,7 @@ td{
 }
 
 .separator{
-    height: 50px;
+    height: 20px;
 }
 
 .assigned{
@@ -38,4 +38,17 @@ td{
 
 .assigned i{
     color: rgb(234, 46, 109);
+}
+
+.bootstrap-select.btn-group, .bootstrap-select.btn-group[class*="span"]{
+    display: none;
+}
+
+.add_container{
+    display: inline-block;
+    padding: 10px;
+}
+
+.add_user{
+    cursor: pointer;
 }

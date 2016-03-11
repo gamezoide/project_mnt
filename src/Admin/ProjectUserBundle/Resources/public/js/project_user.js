@@ -10,6 +10,26 @@ $("#user").change(function () {
     }
 });
 
+$(".add_user").click(function () {
+    $(".add_user").toggleClass('open closed');
+    $(".add_user .plus").toggleClass('glyphicon-plus');
+    $(".add_user .user").toggleClass('glyphicon-user glyphicon-chevron-left');
+    $(".btn-group").slideToggle();
+
+    if ($('.user').hasClass("glyphicon-chevron-left")) {
+        setTimeout(function () {
+            $(".dropdown-toggle").trigger("click");
+       }, 1000);
+
+    }
+
+});
+
+$(document).on("click", ".glyphicon-chevron-left", function () {
+    $('#user').val(0);
+    $('.selectpicker').selectpicker('refresh');
+});
+
 $(document).on("click", ".delete", function () {
     var id = $(this).parent().attr("data-id");
     $("#confirm").find(".modal-title").html($(this).parent().attr("data-name"));
